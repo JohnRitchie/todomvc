@@ -1,4 +1,5 @@
 from playwright.sync_api import Page
+from assertpy import assert_that
 
 
 class TodoMVCPage:
@@ -9,7 +10,7 @@ class TodoMVCPage:
 
     def navigate(self):
         self.page.goto(self.url)
-        assert self.page.url == self.url, "The URL is not correct"
+        assert_that(self.page.url).is_equal_to(self.url)
 
     def screenshot(self, path):
         self.page.screenshot(path=path)
