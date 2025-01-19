@@ -8,8 +8,10 @@ class TestTodoMVCPage:
     @allure.severity(allure.severity_level.BLOCKER)
     @allure.title("Check the basic functionality of the todo list")
     def test_todomvc(self, todomvc_page):
+        todo_1_text = generate_text_with_date("TODO 1")
+        todo_2_text = generate_text_with_date("TODO 2", offset_days=1)
+
         with allure.step("Add a TODO item with the current date"):
-            todo_1_text = generate_text_with_date("TODO 1")
             todomvc_page.add_todo(todo_1_text)
             todomvc_page.screenshot(path="screenshots/step1_add_todo1.png")
 
@@ -17,7 +19,6 @@ class TestTodoMVCPage:
             assert_that(todomvc_page.is_todo_visible(todo_1_text)).is_true()
 
         with allure.step("Add a TODO item for tomorrow"):
-            todo_2_text = generate_text_with_date("TODO 2", offset_days=1)
             todomvc_page.add_todo(todo_2_text)
             todomvc_page.screenshot(path="screenshots/step2_add_todo2.png")
 
