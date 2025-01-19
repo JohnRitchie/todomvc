@@ -36,4 +36,4 @@ class TestTodoMVCPage:
             todomvc_page.screenshot(path="screenshots/step4_delete_todo2.png")
 
         with allure.step("Verify that the item is removed from the list."):
-            assert_that(todomvc_page.is_todo_visible(todo_2_text)).is_true()
+            assert_that(todomvc_page.is_todo_visible(todo_2_text)).is_false()

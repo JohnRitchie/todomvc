@@ -17,8 +17,8 @@ def browser_context_with_video(pytestconfig):
 
 
 @pytest.fixture(scope="session")
-def context(browser):
-    context = browser.new_context(record_video_dir="videos/")
+def context(browser_context_with_video):
+    context = browser_context_with_video.new_context(record_video_dir="videos/")
     context.tracing.start(screenshots=True, snapshots=True)
     yield context
     context.tracing.stop(path="trace.zip")
