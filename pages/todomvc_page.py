@@ -6,7 +6,6 @@ class TodoMVCPage:
         self.page = page
         self.url = "https://todomvc.com/examples/react/dist/"
         self.new_todo_input = page.locator(".new-todo")
-        self.todo_list_items = page.locator(".todo-list li")
 
     def navigate(self):
         self.page.goto(self.url)
